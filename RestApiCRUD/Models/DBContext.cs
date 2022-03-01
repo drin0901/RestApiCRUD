@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RestApiCRUD.Models
 {
-    public class PersonalInfoContext: DbContext
+    public class DBContext: DbContext
     {
-        public PersonalInfoContext(DbContextOptions<PersonalInfoContext> options): base(options)
+        public DBContext(DbContextOptions<DBContext> options): base(options)
         {
 
         }

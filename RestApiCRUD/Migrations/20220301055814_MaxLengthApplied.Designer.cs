@@ -10,8 +10,8 @@ using RestApiCRUD.Models;
 namespace RestApiCRUD.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20220228104821_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220301055814_MaxLengthApplied")]
+    partial class MaxLengthApplied
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,25 +29,30 @@ namespace RestApiCRUD.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime?>("BirthDay")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<long?>("PhoneNumber")
                         .IsRequired()

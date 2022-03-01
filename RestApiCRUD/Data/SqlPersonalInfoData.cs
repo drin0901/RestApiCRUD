@@ -7,8 +7,8 @@ namespace RestApiCRUD.PersonalInfoData
 {
     public class SqlPersonalInfoData : IPersonalInfoData
     {
-        private PersonalInfoContext _personalInfoContext;
-        public SqlPersonalInfoData(PersonalInfoContext personalInfoContext)
+        private DBContext _personalInfoContext;
+        public SqlPersonalInfoData(DBContext personalInfoContext)
         {
             _personalInfoContext = personalInfoContext;
         }
@@ -23,7 +23,7 @@ namespace RestApiCRUD.PersonalInfoData
 
         public void DeletePersonalInfo(PersonalInfo obj)
         {
-            _personalInfoContext.PersonalInfoList.Remove(obj);
+            _personalInfoContext.PersonalInfoList.Update(obj);
             _personalInfoContext.SaveChanges();
         }
 
@@ -43,7 +43,7 @@ namespace RestApiCRUD.PersonalInfoData
 
         public List<PersonalInfo> GetPersonalInfoList()
         {
-           return _personalInfoContext.PersonalInfoList.ToList();
+           return _personalInfoContext.PersonalInfoList.Where(x => x.IsActive == true).ToList();
         }
     }
 }

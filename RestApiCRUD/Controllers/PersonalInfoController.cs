@@ -72,6 +72,7 @@ namespace RestApiCRUD.Controllers
 
             if (personalInfo != null)
             {
+                personalInfo.IsActive = false;
                 _personalInfoData.DeletePersonalInfo(personalInfo);
                 return Ok();
             }
